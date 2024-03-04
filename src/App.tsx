@@ -7,6 +7,7 @@ import { apiBaseUrl } from './constants';
 import { Patient } from './types';
 
 import patientService from './services/patients';
+
 import PatientListPage from './components/PatientListPage';
 import PatientPage from './components/PatientPage';
 
