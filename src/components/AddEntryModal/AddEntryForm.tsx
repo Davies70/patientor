@@ -32,7 +32,6 @@ const AddEntryForm = ({
   const [date, setDate] = useState('');
   const [specialist, setSpecialist] = useState('');
   const [healthCheckRating, setHealthCheckRating] = useState<number>();
-  const [codeStar, setCodeStar] = useState<number>();
   const [diagnosisCodes, setDiagnosisCodes] = useState<string[]>([]);
   const [employerName, setEmployerName] = useState('');
   const [startDate, setStartDate] = useState<string>('');
@@ -87,7 +86,7 @@ const AddEntryForm = ({
     submit(values);
   };
 
-  const handleCodeChange = (event: SelectChangeEvent) => {
+  const handleCodeChange = (event: SelectChangeEvent<string[]>) => {
     const {
       target: { value },
     } = event;
@@ -207,7 +206,7 @@ const AddEntryForm = ({
             name='rating'
             max={4}
             onChange={(_event, value) => handleRatingChange(value)}
-            value={codeStar}
+            value={healthCheckRating}
           />
         </>
       )}
@@ -246,9 +245,9 @@ const AddEntryForm = ({
         <Select
           labelId='diagnosis-code'
           multiple
-          value={diagnosisCodes || []}
+          value={diagnosisCodes}
           onChange={handleCodeChange}
-          input={<OutlinedInput label='Diagnosis code' />}
+          input={<OutlinedInput label='Diagnosis_code' />}
         >
           {codes.map((code) => (
             <MenuItem value={code} key={code}>
