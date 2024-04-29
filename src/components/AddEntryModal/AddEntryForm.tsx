@@ -243,7 +243,7 @@ const AddEntryForm = ({
       <FormControl sx={{ m: 3, ml: 0, width: 555 }}>
         <InputLabel id='diagnosis-code'>Diagnosis code</InputLabel>
         <Select
-          labelId='diagnosis-code'
+          labelId='diagnosis-code-label'
           multiple
           value={diagnosisCodes}
           onChange={handleCodeChange}

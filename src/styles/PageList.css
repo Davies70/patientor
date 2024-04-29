@@ -1,0 +1,44 @@
+.table a {
+  text-align: center;
+  font-weight: normal;
+  position: relative;
+  text-decoration: none;
+  line-height: 24px;
+  padding: 10px;
+  display: inline-block;
+  overflow: hidden;
+  color: inherit;
+}
+
+.table a:before,
+.table a:after {
+  content: '';
+  position: absolute;
+  transition: transform 0.5s ease;
+}
+
+.table a:before,
+.table a:after {
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0883a4;
+}
+.table a:before {
+  bottom: 0;
+  transform: translateX(-100%);
+}
+.table a:after {
+  top: 0;
+  transform: translateX(100%);
+}
+.table a:hover:before,
+.table a:hover:after {
+  transform: translateX(0);
+}
+
+h6 {
+  font-family: Verdana;
+  font-weight: normal;
+  color: #024457;
+}

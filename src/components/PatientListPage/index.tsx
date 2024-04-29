@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../styles/PageList.css';
 import {
   Box,
   Table,
@@ -61,14 +62,14 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
   };
 
   return (
-    <div className='App'>
+    <Box>
       <Box>
         <Typography align='center' variant='h6'>
           Patient list
         </Typography>
       </Box>
-      <Table style={{ marginBottom: '1em' }}>
-        <TableHead>
+      <Table style={{ marginBottom: '1em' }} className='table'>
+        <TableHead style={{ background: '#def2f1', color: 'green' }}>
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>Gender</TableCell>
@@ -80,17 +81,17 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
           {Object.values(patients).map((patient: Patient) => (
             <TableRow key={patient.id}>
               <TableCell>
-                <Link
-                  to={`patients/${patient.id}`}
-                  style={{ textDecoration: 'none' }}
-                >
-                  {patient.name}
-                </Link>
+                <Link to={`patients/${patient.id}`}>{patient.name}</Link>
               </TableCell>
               <TableCell>{patient.gender}</TableCell>
               <TableCell>{patient.occupation}</TableCell>
               <TableCell>
-                <HealthRatingBar showText={false} rating={1} />
+                <HealthRatingBar
+                  showText={true}
+                  rating={1}
+                  id={patient.id}
+                  healthRating={patient.healthRating}
+                />
               </TableCell>
             </TableRow>
           ))}
@@ -105,7 +106,7 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
       <Button variant='contained' onClick={() => openModal()}>
         Add New Patient
       </Button>
-    </div>
+    </Box>
   );
 };
 

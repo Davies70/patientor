@@ -8,6 +8,7 @@ import {
   Grid,
   Button,
   SelectChangeEvent,
+  FormControl,
 } from '@mui/material';
 
 import { PatientFormValues, Gender } from '../../types';
@@ -58,7 +59,10 @@ const AddPatientForm = ({ onCancel, onSubmit }: Props) => {
 
   return (
     <div>
-      <form onSubmit={addPatient}>
+      <form
+        onSubmit={addPatient}
+        style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
+      >
         <TextField
           label='Name'
           fullWidth
@@ -72,11 +76,13 @@ const AddPatientForm = ({ onCancel, onSubmit }: Props) => {
           onChange={({ target }) => setSsn(target.value)}
         />
         <TextField
+          id='dateOfBirth'
           label='Date of birth'
-          placeholder='YYYY-MM-DD'
           fullWidth
+          type='date'
           value={dateOfBirth}
           onChange={({ target }) => setDateOfBirth(target.value)}
+          InputLabelProps={{ shrink: true }}
         />
         <TextField
           label='Occupation'
@@ -84,20 +90,22 @@ const AddPatientForm = ({ onCancel, onSubmit }: Props) => {
           value={occupation}
           onChange={({ target }) => setOccupation(target.value)}
         />
-
-        <InputLabel style={{ marginTop: 20 }}>Gender</InputLabel>
-        <Select
-          label='Gender'
-          fullWidth
-          value={gender}
-          onChange={onGenderChange}
-        >
-          {genderOptions.map((option) => (
-            <MenuItem key={option.label} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
+        <FormControl>
+          <InputLabel id='label-gender'>Gender</InputLabel>
+          <Select
+            label='Gender'
+            labelId='label-gender'
+            fullWidth
+            value={gender}
+            onChange={onGenderChange}
+          >
+            {genderOptions.map((option) => (
+              <MenuItem key={option.label} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <Grid>
           <Grid item>

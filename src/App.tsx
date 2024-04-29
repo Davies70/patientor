@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Button, Divider, Container, Typography } from '@mui/material';
+import { Divider, Container, Typography } from '@mui/material';
 
 import { apiBaseUrl } from './constants';
 import { Patient } from './types';
@@ -10,6 +10,7 @@ import patientService from './services/patients';
 
 import PatientListPage from './components/PatientListPage';
 import PatientPage from './components/PatientPage';
+import './styles/App.css';
 
 const App = () => {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -25,15 +26,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className='App'>
+    <div>
       <Router>
-        <Container>
-          <Typography variant='h3' style={{ marginBottom: '0.5em' }}>
-            Patientor
+        <Container className='App'>
+          <Typography variant='h1' >
+            <Link to={'/'}>Patientor</Link>
           </Typography>
-          <Button component={Link} to='/' variant='contained' color='primary'>
-            Home
-          </Button>
+
           <Divider hidden />
           <Routes>
             <Route

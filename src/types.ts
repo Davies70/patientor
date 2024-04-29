@@ -18,6 +18,7 @@ export interface Patient {
   ssn?: string;
   dateOfBirth?: string;
   entries: Entry[];
+  healthRating?: number | null;
 }
 
 interface BaseEntry {
@@ -73,3 +74,8 @@ type UnionOmit<T, K extends string | number | symbol> = T extends unknown
 export type EntryFormValues = UnionOmit<Entry, 'id'>;
 
 export type PatientFormValues = Omit<Patient, 'id' | 'entries'>;
+
+export interface RatingAndId {
+  healthRating: number | null;
+  id: string;
+}
