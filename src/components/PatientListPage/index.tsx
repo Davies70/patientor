@@ -65,13 +65,13 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
     <Box>
       <Box>
         <Typography align='center' variant='h6'>
-          Patient list
+          Patients' list
         </Typography>
       </Box>
-      <Table style={{ marginBottom: '1em' }} className='table'>
-        <TableHead style={{ background: '#def2f1', color: 'green' }}>
-          <TableRow>
-            <TableCell>Name</TableCell>
+      <Table style={{ marginBottom: '1em' }} className='table' stickyHeader>
+        <TableHead style={{ background: '#fff' }}>
+          <TableRow className='row'>
+            <TableCell style={{ color: 'color' }}>Name</TableCell>
             <TableCell>Gender</TableCell>
             <TableCell>Occupation</TableCell>
             <TableCell>Health Rating</TableCell>

@@ -29,7 +29,7 @@ const App = () => {
     <div>
       <Router>
         <Container className='App'>
-          <Typography variant='h1' >
+          <Typography variant='h3' align='center'>
             <Link to={'/'}>Patientor</Link>
           </Typography>
 
