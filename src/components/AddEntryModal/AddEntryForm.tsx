@@ -240,22 +240,24 @@ const AddEntryForm = ({
         </>
       )}
 
-      <FormControl sx={{ m: 3, ml: 0, width: 555 }}>
-        <InputLabel id='diagnosis-code'>Diagnosis code</InputLabel>
-        <Select
-          labelId='diagnosis-code-label'
-          multiple
-          value={diagnosisCodes}
-          onChange={handleCodeChange}
-          input={<OutlinedInput label='Diagnosis_code' />}
-        >
-          {codes.map((code) => (
-            <MenuItem value={code} key={code}>
-              {code}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Grid>
+        <FormControl margin='normal' fullWidth>
+          <InputLabel id='diagnosis-code'>Diagnosis code</InputLabel>
+          <Select
+            labelId='diagnosis-code-label'
+            multiple
+            value={diagnosisCodes}
+            onChange={handleCodeChange}
+            input={<OutlinedInput label='Diagnosis_code' />}
+          >
+            {codes.map((code) => (
+              <MenuItem value={code} key={code}>
+                {code}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
 
       <Grid container spacing={2}>
         <Grid item xs={6}>
