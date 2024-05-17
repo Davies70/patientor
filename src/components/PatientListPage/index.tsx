@@ -5,7 +5,6 @@ import {
   Table,
   Button,
   TableHead,
-  Typography,
   TableCell,
   TableRow,
   TableBody,
@@ -63,13 +62,14 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
 
   return (
     <Box>
-      <Box>
-        <Typography align='center' variant='h6'>
-          Patients' list
-        </Typography>
-      </Box>
       <Table style={{ marginBottom: '1em' }} className='table' stickyHeader>
-        <TableHead style={{ background: '#fff' }}>
+        <TableHead
+          style={{
+            background: 'green',
+            width: '100%',
+
+          }}
+        >
           <TableRow className='row'>
             <TableCell style={{ color: 'color' }}>Name</TableCell>
             <TableCell>Gender</TableCell>

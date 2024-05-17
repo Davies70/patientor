@@ -1,9 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 body {
   font: 16px/1 'Open Sans', sans-serif;
   background: whitesmoke;
-  font-family: system-ui, sans-serif;
+}
+
+html {
+  height: 100vh;
+  scroll-behavior: smooth;
+  width: 100vw;
 }
 
 h3 {
