@@ -61,50 +61,49 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
   };
 
   return (
-    <Box>
+    <Box sx={{ overflowX: 'auto' }}>
       <Table style={{ marginBottom: '1em' }} className='table' stickyHeader>
-        <TableHead
-          style={{
-            background: 'green',
-            width: '100%',
-
-          }}
-        >
-          <TableRow className='row'>
-            <TableCell style={{ color: 'color' }}>Name</TableCell>
-            <TableCell>Gender</TableCell>
-            <TableCell>Occupation</TableCell>
-            <TableCell>Health Rating</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {Object.values(patients).map((patient: Patient) => (
-            <TableRow key={patient.id}>
-              <TableCell>
-                <Link to={`patients/${patient.id}`}>{patient.name}</Link>
-              </TableCell>
-              <TableCell>{patient.gender}</TableCell>
-              <TableCell>{patient.occupation}</TableCell>
-              <TableCell>
-                <HealthRatingBar
-                  showText={true}
-                  rating={1}
-                  id={patient.id}
-                  healthRating={patient.healthRating}
-                />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+      <TableHead
+        style={{
+        background: 'green',
+        width: '100%',
+        }}
+      >
+        <TableRow className='row'>
+        <TableCell style={{ color: 'color' }}>Name</TableCell>
+        <TableCell>Gender</TableCell>
+        <TableCell>Occupation</TableCell>
+        <TableCell>Health Rating</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {Object.values(patients).map((patient: Patient) => (
+        <TableRow key={patient.id}>
+          <TableCell>
+          <Link to={`patients/${patient.id}`}>{patient.name}</Link>
+          </TableCell>
+          <TableCell>{patient.gender}</TableCell>
+          <TableCell>{patient.occupation}</TableCell>
+          <TableCell>
+          <HealthRatingBar
+            showText={true}
+            rating={1}
+            id={patient.id}
+            healthRating={patient.healthRating}
+          />
+          </TableCell>
+        </TableRow>
+        ))}
+      </TableBody>
       </Table>
       <AddPatientModal
-        modalOpen={modalOpen}
-        onSubmit={submitNewPatient}
-        error={error}
-        onClose={closeModal}
+      modalOpen={modalOpen}
+      onSubmit={submitNewPatient}
+      error={error}
+      onClose={closeModal}
       />
       <Button variant='contained' onClick={() => openModal()}>
-        Add New Patient
+      Add New Patient
       </Button>
     </Box>
   );
